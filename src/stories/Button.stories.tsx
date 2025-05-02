@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Button>;
 export const Filled: Story = {
   args: {
     variant: 'filled',
-    color: 'blue',
+    color: 'green-light',
     children: 'Hello'
   }
 };
