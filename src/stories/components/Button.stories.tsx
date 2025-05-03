@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Button from '../components/Button/Button';
+import Button from '../../components/Button/Button.tsx';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -18,11 +18,3 @@ export const Filled: Story = {
     children: 'Hello'
   }
 };
-
-// export const Outlined: Story = {
-//   args: {
-//     variant: 'outlined',
-//     text: 'Outlined Button',
-//     color: 'red'
-//   }
-// };

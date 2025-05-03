@@ -1,0 +1,1 @@
+['typescript', 'nocss', 'notest', 'functional'];
