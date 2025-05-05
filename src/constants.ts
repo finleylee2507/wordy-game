@@ -20,3 +20,8 @@ export const COLORS = {
     900: '115, 34%, 19%'
   }
 };
+
+export enum View {
+  Landing = 'landing',
+  Game = 'game'
+}
