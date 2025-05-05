@@ -10,10 +10,7 @@ type InstructionsDialogProps = {
   onDismiss: () => void;
 };
 
-const InstructionsDialog: React.FC<InstructionsDialogProps> = ({
-  isOpen,
-  onDismiss
-}) => {
+const InstructionsDialog: React.FC<InstructionsDialogProps> = ({ isOpen }) => {
   return (
     <Dialog.Root open={isOpen}>
       <Dialog.Portal>
