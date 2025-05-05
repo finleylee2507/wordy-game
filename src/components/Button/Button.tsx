@@ -33,7 +33,7 @@ const SIZES = {
 const COLORS = {
   'green-light': {
     outlined: {
-      backgroundColor: 'var(--color-green-300)',
+      backgroundColor: 'transparent',
       color: 'var(--color-green-500)',
       opacity: 0.85
     },
@@ -45,7 +45,7 @@ const COLORS = {
   },
   'green-dark': {
     outlined: {
-      backgroundColor: 'var(--color-green-300)',
+      backgroundColor: 'transparent',
       color: 'var(--color-green-900)',
       opacity: 0.85
     },
