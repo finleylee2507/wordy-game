@@ -57,14 +57,14 @@ const COLORS = {
   }
 };
 
-const Button = ({
+const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   variant,
   color = 'green-light',
   fullWidth = false,
   size = 'small',
   className,
   children
-}: React.PropsWithChildren<ButtonProps>) => {
+}) => {
   const styles = {
     '--font-size': SIZES[size].fontSize,
     '--padding': SIZES[size].padding,

@@ -63,8 +63,16 @@ const GlobalStyles = createGlobalStyle`
   :root {
     /* Colors */
     --color-white: hsl(${COLORS.white});
-    --color-gray-100: hsl(${COLORS.gray['100']});
-    --color-gray-500: hsl(${COLORS.gray['500']});
+   --color-gray-50: hsl(${COLORS.gray['50']});
+   --color-gray-100: hsl(${COLORS.gray['100']});
+   --color-gray-200: hsl(${COLORS.gray['200']});
+   --color-gray-300: hsl(${COLORS.gray['300']});
+   --color-gray-400: hsl(${COLORS.gray['400']});
+   --color-gray-500: hsl(${COLORS.gray['500']});
+   --color-gray-600: hsl(${COLORS.gray['600']});
+   --color-gray-700: hsl(${COLORS.gray['700']});
+   --color-gray-800: hsl(${COLORS.gray['800']});
+   --color-gray-900: hsl(${COLORS.gray['900']});
     --color-green-100: hsl(${COLORS.green['100']});
     --color-green-300: hsl(${COLORS.green['300']});
     --color-green-500: hsl(${COLORS.green['500']});
@@ -77,7 +85,7 @@ const GlobalStyles = createGlobalStyle`
     --font-size-h3: clamp(1.25rem, 3vw + 0.5rem, 2.25rem); /* 20px to 36px */
     --font-size-h4: clamp(1.25rem, 2vw + 0.5rem, 1.5rem); /* 20px to 24px */
     --font-size-h5: clamp(1.125rem, 1vw + 0.75rem, 1.25rem); /* 18px to 20px */
-    --font-size-h6: clamp(1rem, 0.5vw + 0.875rem, 1rem); /* 16px */
+    --font-size-h6: clamp(1.0625rem, 0.5vw + 0.9375rem, 1.125rem); /* 17px to 18px */
     --font-size-body: clamp(1rem, 0.5vw + 0.875rem, 1rem); /* 16px */
     --font-size-small: clamp(0.875rem, 0.25vw + 0.8rem, 0.875rem); /* 14px */
 
@@ -159,6 +167,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
     color: var(--color-gray-900, #333);

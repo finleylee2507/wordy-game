@@ -1,9 +1,10 @@
-import { LandingPage } from './pages';
+import GlobalStyles from './components/GlobalStyles';
 
 function App() {
   return (
     <>
-      <LandingPage />
+      Hello world
+      <GlobalStyles />
     </>
   );
 }
