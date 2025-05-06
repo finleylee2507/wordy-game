@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { GridCell } from '../../components/GridCell';
+import { GridCell } from '../../components';
 
 const meta: Meta<typeof GridCell> = {
   title: 'GridCell',

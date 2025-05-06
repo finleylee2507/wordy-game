@@ -1,5 +1,7 @@
 export const COLORS = {
   white: '0, 0%, 100%',
+  offWhite: '0, 0%, 98%',
+  paleWhite: '0, 0%, 95%',
   black: '227, 26%, 17%',
   gray: {
     50: '210, 12%, 97%',
@@ -20,6 +22,22 @@ export const COLORS = {
     500: '115, 29%, 53%',
     900: '115, 34%, 19%'
   }
+};
+
+export const BREAKPOINTS = {
+  sm: '576px',
+  md: '800px',
+  lg: '1000px',
+  xl: '1300px',
+  xxl: '1500px'
+};
+
+export const BREAKPOINTS_NUMERIC = {
+  sm: 576,
+  md: 800,
+  lg: 1000,
+  xl: 1300,
+  xxl: 1500
 };
 
 export enum View {

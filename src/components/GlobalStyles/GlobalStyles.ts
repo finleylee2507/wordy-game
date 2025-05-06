@@ -62,7 +62,10 @@ const GlobalStyles = createGlobalStyle`
   /*PROJECT STYLES*/
   :root {
     /* Colors */
+    --color-black:hsl(${COLORS.black});
     --color-white: hsl(${COLORS.white});
+    --color-off-white:hsl(${COLORS.offWhite});
+    --color-pale-white:hsl(${COLORS.paleWhite});
    --color-gray-50: hsl(${COLORS.gray['50']});
    --color-gray-100: hsl(${COLORS.gray['100']});
    --color-gray-200: hsl(${COLORS.gray['200']});
@@ -124,45 +127,53 @@ const GlobalStyles = createGlobalStyle`
     font-size: var(--font-size-h1);
     line-height: var(--line-height-heading);
     font-weight: var(--font-weight-bold);
+    color:var(--color-black);
   }
 
   h2 {
     font-size: var(--font-size-h2);
     line-height: var(--line-height-heading);
     font-weight: var(--font-weight-bold);
+    color:var(--color-black);
   }
 
   h3 {
     font-size: var(--font-size-h3);
     line-height: var(--line-height-heading);
     font-weight: var(--font-weight-semibold);
+    color:var(--color-black);
   }
 
   h4 {
     font-size: var(--font-size-h4);
     line-height: var(--line-height-heading);
     font-weight: var(--font-weight-semibold);
+    color:var(--color-black);
   }
 
   h5 {
     font-size: var(--font-size-h5);
     line-height: var(--line-height-heading);
     font-weight: var(--font-weight-medium);
+    color:var(--color-black);
   }
 
   h6 {
     font-size: var(--font-size-h6);
     line-height: var(--line-height-heading);
     font-weight: var(--font-weight-medium);
+    color:var(--color-black);
   }
 
   p {
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
+    color:var(--color-black);
   }
 
   small {
     font-size: var(--font-size-small);
+    color:var(--color-black);
   }
 
   body {

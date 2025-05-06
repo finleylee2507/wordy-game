@@ -18,7 +18,7 @@ const InstructionsDialog: React.FC<InstructionsDialogProps> = ({ isOpen }) => {
         <S.Content>
           <S.CloseButton>
             <UnstyledButton>
-              <Icon id="close" />
+              <Icon id="close" size={24} />
             </UnstyledButton>
           </S.CloseButton>
 

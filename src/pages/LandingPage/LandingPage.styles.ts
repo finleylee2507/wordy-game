@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Button } from '../../components/Button';
+import { BREAKPOINTS } from '../../constants.ts';
 
 export const PageWrapper = styled.div`
   background-color: var(--color-green-100);
@@ -17,7 +18,7 @@ export const ContentWrapper = styled.div`
   min-height: min(95vh, 950px);
   position: relative;
 
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: ${BREAKPOINTS.xxl}) {
     max-width: 90%;
   }
 `;
@@ -29,7 +30,7 @@ export const FlexContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
     flex-direction: column;
   }
 `;
@@ -39,7 +40,7 @@ export const LeftColumn = styled.div`
   flex: 5;
   min-width: 350px;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
     min-width: unset;
     text-align: center;
   }
@@ -83,7 +84,7 @@ export const WordyLogoWrapper = styled.span`
     will-change: transform, opacity, filter;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
     width: 30%;
   }
 `;
@@ -217,7 +218,7 @@ export const ButtonContainer = styled.div`
   column-gap: 40px;
   row-gap: 20px;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
     flex-direction: column;
   }
 `;
@@ -267,7 +268,7 @@ export const WordyGridWrapper = styled.div`
     will-change: transform, opacity;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
     min-width: unset;
     position: absolute;
     top: 0;
@@ -309,7 +310,7 @@ export const WordyKeyboardWrapper = styled.div`
     animation-delay: 2700ms;
   }
 
-  @media screen and (max-width: 1300px) {
+  @media screen and (max-width: ${BREAKPOINTS.xl}) {
     display: none;
   }
 `;
@@ -354,11 +355,11 @@ export const DecorationWrapper = styled.div`
     animation-delay: 2700ms;
   }
 
-  @media screen and (max-width: 1300px) {
+  @media screen and (max-width: ${BREAKPOINTS.xl}) {
     width: 150px;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
     display: block;
     position: absolute;
     top: 20px;

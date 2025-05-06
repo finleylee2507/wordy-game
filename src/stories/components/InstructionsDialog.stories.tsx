@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { InstructionsDialog } from '../../components/InstructionsDialog';
+import { InstructionsDialog } from '../../components';
 
 const meta: Meta<typeof InstructionsDialog> = {
   title: 'InstructionsDialog',
