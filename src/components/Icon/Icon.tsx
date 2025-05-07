@@ -1,10 +1,15 @@
-import { IoClose, IoHome, IoSettings } from 'react-icons/io5';
+import {
+  IoBackspaceOutline,
+  IoClose,
+  IoHome,
+  IoSettings
+} from 'react-icons/io5';
 import * as S from './Icon.styles.ts';
 import * as React from 'react';
 import { IoIosStats, IoMdHelpCircle } from 'react-icons/io';
 
 type IconProps = {
-  id: 'close' | 'help' | 'stats' | 'settings' | 'home';
+  id: 'close' | 'help' | 'stats' | 'settings' | 'home' | 'backspace';
   color?: string;
   size?: number;
   strokeWidth?: number;
@@ -15,7 +20,8 @@ const icons = {
   help: IoMdHelpCircle,
   stats: IoIosStats,
   settings: IoSettings,
-  home: IoHome
+  home: IoHome,
+  backspace: IoBackspaceOutline
 };
 
 const Icon: React.FC<IconProps> = ({

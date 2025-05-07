@@ -44,3 +44,5 @@ export enum View {
   Landing = 'landing',
   Game = 'game'
 }
+
+export const NUM_OF_GUESSES_ALLOWED = 5;

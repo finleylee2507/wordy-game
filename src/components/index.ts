@@ -6,3 +6,5 @@ export * from './InstructionsDialog';
 export * from './UnstyledButton';
 export * from './ViewManager';
 export * from './NavBar';
+export * from './Grid';
+export * from './VisualKeyboard';

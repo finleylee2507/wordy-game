@@ -47,13 +47,12 @@ const GridCell: React.FC<GridCellProps> = props => {
   const calculatedPaddings = calculatedFontSize / 1.5;
   const calculatedWidth = calculatedFontSize + 2 * calculatedPaddings;
 
-  console.log(calculatedWidth);
   const styles = {
-    '--fontSize': `${calculatedFontSize}px`,
+    '--font-size': `${calculatedFontSize}px`,
     '--width': `${calculatedWidth}px`,
-    '--textColor': `${COLORS[status].textColor}`,
-    '--borderColor': `${COLORS[status].borderColor}`,
-    '--backgroundColor': `${COLORS[status].backgroundColor}`
+    '--text-color': `${COLORS[status].textColor}`,
+    '--border-color': `${COLORS[status].borderColor}`,
+    '--background-color': `${COLORS[status].backgroundColor}`
   } as CSSProperties;
 
   return (

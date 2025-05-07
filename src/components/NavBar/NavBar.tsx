@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as S from './NavBar.styles.ts';
-import { UnstyledButton } from '../UnstyledButton';
 import { Icon } from '../Icon';
 import AppIcon from '../../../public/assets/wordy-icon.svg';
 import { useBreakpoint } from '../../hooks';
