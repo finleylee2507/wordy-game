@@ -3,6 +3,7 @@ import { View } from '../constants.ts';
 
 type ViewContextProps = {
   currentView: View;
+  setCurrentView: (view: View) => void;
 };
 
 const ViewContext = React.createContext<ViewContextProps | undefined>(

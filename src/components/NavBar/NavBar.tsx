@@ -3,7 +3,8 @@ import * as S from './NavBar.styles.ts';
 import { Icon } from '../Icon';
 import AppIcon from '../../../public/assets/wordy-icon.svg';
 import { useBreakpoint } from '../../hooks';
-import { BREAKPOINTS_NUMERIC } from '../../constants.ts';
+import { BREAKPOINTS_NUMERIC, View } from '../../constants.ts';
+import { useView } from '../../providers';
 
 const ICON_SIZE_MAP: Record<keyof typeof BREAKPOINTS_NUMERIC, number> = {
   sm: 20,
@@ -18,10 +19,16 @@ const NavBar: React.FC = () => {
   const currWindowWidth = useBreakpoint(BREAKPOINTS_NUMERIC);
   const iconSize = ICON_SIZE_MAP[currWindowWidth];
 
+  const { setCurrentView } = useView();
+
+  const handleGoHome = () => {
+    setCurrentView(View.Landing);
+  };
+
   return (
     <S.Wrapper>
       <S.ButtonGroup>
-        <S.IconButton>
+        <S.IconButton onClick={handleGoHome}>
           <Icon id="home" color={iconColor} size={iconSize} />
         </S.IconButton>
         <S.IconButton>

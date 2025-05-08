@@ -79,7 +79,11 @@ export const WordyLogoWrapper = styled.span`
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${logoReveal} 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? logoReveal : 'none'};
+    animation-duration: 800ms;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: both;
     transform-origin: center top;
     will-change: transform, opacity, filter;
   }
@@ -114,8 +118,8 @@ const titleLetterReveal = keyframes`
     opacity: 1;
     transform: scale(1);
   }
-
 `;
+
 export const Title = styled.h1`
   margin-top: 15px;
 `;
@@ -127,26 +131,36 @@ export const TitleLetter = styled.span`
   opacity: 1;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${titleLetterReveal} linear 1000ms both;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? titleLetterReveal : 'none'};
+    animation-duration: 1000ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     will-change: transform;
+
     &:nth-child(1) {
-      animation-delay: 800ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '800ms' : '0ms'};
     }
 
     &:nth-child(2) {
-      animation-delay: 900ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '900ms' : '0ms'};
     }
 
     &:nth-child(3) {
-      animation-delay: 1000ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '1000ms' : '0ms'};
     }
 
     &:nth-child(4) {
-      animation-delay: 1100ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '1100ms' : '0ms'};
     }
 
     &:nth-child(5) {
-      animation-delay: 1200ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '1200ms' : '0ms'};
     }
   }
 `;
@@ -175,39 +189,51 @@ export const DescriptionWord = styled.span`
   display: inline-block;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${descriptionWordReview} 500ms ease both;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? descriptionWordReview : 'none'};
+    animation-duration: 500ms;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
     will-change: transform, opacity;
 
     &:nth-child(1) {
-      animation-delay: 2000ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2000ms' : '0ms'};
     }
 
     &:nth-child(2) {
-      animation-delay: 2100ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2100ms' : '0ms'};
     }
 
     &:nth-child(3) {
-      animation-delay: 2200ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2200ms' : '0ms'};
     }
 
     &:nth-child(4) {
-      animation-delay: 2300ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2300ms' : '0ms'};
     }
 
     &:nth-child(5) {
-      animation-delay: 2400ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2400ms' : '0ms'};
     }
 
     &:nth-child(6) {
-      animation-delay: 2500ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2500ms' : '0ms'};
     }
 
     &:nth-child(7) {
-      animation-delay: 2600ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2600ms' : '0ms'};
     }
 
     &:nth-child(8) {
-      animation-delay: 2700ms;
+      animation-delay: ${props =>
+        props.theme.shouldAnimate ? '2700ms' : '0ms'};
     }
   }
 `;
@@ -263,8 +289,12 @@ export const WordyGridWrapper = styled.div`
   filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.15));
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${spinningGrid} 1200ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
-    animation-delay: 1500ms;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? spinningGrid : 'none'};
+    animation-duration: 1200ms;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation-fill-mode: both;
+    animation-delay: ${props => (props.theme.shouldAnimate ? '1500ms' : '0ms')};
     will-change: transform, opacity;
   }
 
@@ -276,7 +306,11 @@ export const WordyGridWrapper = styled.div`
     width: 40%;
     transform: translateX(55%) rotate(346deg);
     transform-origin: bottom right;
-    animation: ${fallingGrid} ease 500ms both;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? fallingGrid : 'none'};
+    animation-duration: 500ms;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
   }
 `;
 
@@ -306,8 +340,11 @@ export const WordyKeyboardWrapper = styled.div`
 
   @media (prefers-reduced-motion: no-preference) {
     will-change: transform;
-    animation: ${slideUp} ease-out 800ms both;
-    animation-delay: 2700ms;
+    animation-name: ${props => (props.theme.shouldAnimate ? slideUp : 'none')};
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-delay: ${props => (props.theme.shouldAnimate ? '2700ms' : '0ms')};
   }
 
   @media screen and (max-width: ${BREAKPOINTS.xl}) {
@@ -331,7 +368,6 @@ const slideDown = keyframes`
 `;
 
 const slideRight = keyframes`
-
   from{
     transform: translateX(-100%);
   }
@@ -339,7 +375,6 @@ const slideRight = keyframes`
   to {
     transform: translateX(-50%);
   }
-
 `;
 
 export const DecorationWrapper = styled.div`
@@ -351,8 +386,12 @@ export const DecorationWrapper = styled.div`
 
   @media (prefers-reduced-motion: no-preference) {
     will-change: transform;
-    animation: ${slideDown} ease-out 800ms both;
-    animation-delay: 2700ms;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? slideDown : 'none'};
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-delay: ${props => (props.theme.shouldAnimate ? '2700ms' : '0ms')};
   }
 
   @media screen and (max-width: ${BREAKPOINTS.xl}) {
@@ -365,9 +404,14 @@ export const DecorationWrapper = styled.div`
     top: 20px;
     left: 0;
     width: 20%;
-    animation: ${slideRight} ease-out 500ms both;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? slideRight : 'none'};
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
   }
 `;
+
 export const Decoration = styled.img`
   width: 100%;
 `;
@@ -384,8 +428,12 @@ const buttonReveal = keyframes`
 
 export const ButtonWrapper = styled.span`
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${buttonReveal} 2000ms ease-in-out both;
-    animation-delay: 2500ms;
+    animation-name: ${props =>
+      props.theme.shouldAnimate ? buttonReveal : 'none'};
+    animation-duration: 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-delay: ${props => (props.theme.shouldAnimate ? '2500ms' : '0ms')};
   }
 `;
 
@@ -404,7 +452,11 @@ export const CtaButton = styled(Button)`
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover {
-      animation: ${buttonHover} 500ms ease infinite alternate;
+      animation-name: ${buttonHover};
+      animation-duration: 500ms;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
   }
 `;

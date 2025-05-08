@@ -7,6 +7,7 @@ type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const SIZES = {
@@ -63,7 +64,9 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   fullWidth = false,
   size = 'small',
   className,
-  children
+  children,
+  onClick,
+  ...delegated
 }) => {
   const styles = {
     '--font-size': SIZES[size].fontSize,
@@ -86,7 +89,12 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   } as React.CSSProperties;
 
   return (
-    <S.Wrapper style={styles} className={className}>
+    <S.Wrapper
+      style={styles}
+      className={className}
+      onClick={onClick}
+      {...delegated}
+    >
       {children}
     </S.Wrapper>
   );
