@@ -1,13 +1,19 @@
 import GlobalStyles from './components/GlobalStyles';
 import { ViewManager } from './components/ViewManager';
-import { ViewProvider } from './providers';
+import { DialogProvider, GameProvider, ViewProvider } from './providers';
+import DialogManager from './components/DialogManager/DialogManager.tsx';
 
 function App() {
   return (
-    <ViewProvider>
-      <ViewManager />
-      <GlobalStyles />
-    </ViewProvider>
+    <DialogProvider>
+      <GameProvider>
+        <ViewProvider>
+          <ViewManager />
+          <GlobalStyles />
+          <DialogManager />
+        </ViewProvider>
+      </GameProvider>
+    </DialogProvider>
   );
 }
 

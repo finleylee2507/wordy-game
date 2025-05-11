@@ -3,17 +3,25 @@ import wordyGrid from '../../../public/assets/wordy-grid.png';
 import wordyKeyboard from '../../../public/assets/keyboard.png';
 import decoration from '../../../public/assets/hexagon-decoration.svg';
 import * as S from './LandingPage.styles.ts';
-import { useView } from '../../providers';
+import { useDialog, useGame, useView } from '../../providers';
 import { View } from '../../constants.ts';
 import { usePageFirstLoad } from '../../hooks';
 import * as React from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { DialogType, GameStatus } from '../../types.ts';
 
 const LandingPage = () => {
   const { setCurrentView } = useView();
+  const { setGameStatus } = useGame();
+  const { openDialog } = useDialog();
   const { isPageFirstLoad, markPageAsLoaded } = usePageFirstLoad(View.Landing);
   const handlePlayGame = () => {
     setCurrentView(View.Game);
+    setGameStatus(GameStatus.RUNNING);
+  };
+
+  const handleShowHelp = () => {
+    openDialog(DialogType.INSTRUCTIONS);
   };
 
   React.useEffect(() => {
@@ -74,6 +82,7 @@ const LandingPage = () => {
                     variant="outlined"
                     color="green-dark"
                     size="medium"
+                    onClick={handleShowHelp}
                   >
                     How to play
                   </S.CtaButton>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Dialog } from 'radix-ui';
+import { UnstyledButton } from '../UnstyledButton';
 
 export const Overlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -22,7 +23,7 @@ export const Content = styled(Dialog.Content)`
   padding: 40px;
 `;
 
-export const CloseButton = styled(Dialog.Close)`
+export const CloseButtonWrapper = styled(Dialog.Close)`
   position: absolute;
   top: 5px;
   right: 5px;
@@ -30,6 +31,8 @@ export const CloseButton = styled(Dialog.Close)`
   background: transparent;
   border: none;
 `;
+
+export const CloseButton = styled(UnstyledButton)``;
 
 export const Description = styled.section`
   margin-bottom: 10px;

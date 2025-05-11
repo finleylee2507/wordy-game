@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as S from './VisualKeyboard.styles.ts';
 import { Icon } from '../Icon';
+import { useGame } from '../../providers';
 
 const FIRST_ROW = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
 const SECOND_ROW = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
@@ -33,14 +34,15 @@ type KeyboardCellProps = {
   status: 'correct' | 'incorrect' | 'misplaced' | 'unstyled';
   fontSize?: number;
   isSpecialKey?: boolean;
+  onClick?: () => void;
 };
 
-//TODO: make each cell a button that's clickable
 const KeyboardCell: React.FC<React.PropsWithChildren<KeyboardCellProps>> = ({
   children,
   status,
   fontSize = 24,
-  isSpecialKey = false
+  isSpecialKey = false,
+  onClick
 }) => {
   // Calculate dimensions based on font size
   const baseCellWidth = fontSize * 2.2; // Base width for standard keys
@@ -60,21 +62,51 @@ const KeyboardCell: React.FC<React.PropsWithChildren<KeyboardCellProps>> = ({
   } as React.CSSProperties;
 
   return (
-    <S.CellWrapper style={styles}>
+    <S.CellWrapper style={styles} onClick={onClick}>
       <S.CellContent>{children}</S.CellContent>
     </S.CellWrapper>
   );
 };
 
 const VisualKeyboard: React.FC = () => {
+  const {
+    addLetterToCurrentGuess,
+    commitCurrentGuess,
+    removeLastLetterFromCurrentGuess,
+    letterStatus
+  } = useGame();
+
+  const getOnClickHandler = (key: string) => {
+    if (key === 'ENTER') {
+      return () => {
+        commitCurrentGuess();
+      };
+    }
+
+    if (key === 'backspace') {
+      return () => {
+        removeLastLetterFromCurrentGuess();
+      };
+    }
+
+    return () => {
+      addLetterToCurrentGuess(key);
+    };
+  };
+
+  const getLetterStatus = (letter: string) => {
+    return letterStatus[letter] ?? 'unstyled';
+  };
+
   return (
     <S.KeyboardWrapper>
       <S.KeyboardRow>
         {FIRST_ROW.map((letter, index) => (
           <KeyboardCell
-            status="unstyled"
+            status={getLetterStatus(letter)}
             key={index}
             fontSize={KEYBOARD_CELL_SIZE}
+            onClick={getOnClickHandler(letter)}
           >
             {letter}
           </KeyboardCell>
@@ -84,9 +116,10 @@ const VisualKeyboard: React.FC = () => {
       <S.KeyboardRow>
         {SECOND_ROW.map((letter, index) => (
           <KeyboardCell
-            status="unstyled"
+            status={getLetterStatus(letter)}
             key={index}
             fontSize={KEYBOARD_CELL_SIZE}
+            onClick={getOnClickHandler(letter)}
           >
             {letter}
           </KeyboardCell>
@@ -97,10 +130,11 @@ const VisualKeyboard: React.FC = () => {
         {THIRD_ROW.map((letter, index) => {
           return (
             <KeyboardCell
-              status="unstyled"
+              status={getLetterStatus(letter)}
               key={index}
               fontSize={KEYBOARD_CELL_SIZE}
               isSpecialKey={SPECIAL_KEYS.includes(letter)}
+              onClick={getOnClickHandler(letter)}
             >
               {letter === 'backspace' ? (
                 <Icon id="backspace" size={30} />

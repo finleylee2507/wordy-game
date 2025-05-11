@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { UnstyledButton } from '../UnstyledButton';
 
-export const CellWrapper = styled.div`
+export const CellWrapper = styled(UnstyledButton)`
   background-color: var(--background-color);
   border-radius: 5px;
   display: grid;

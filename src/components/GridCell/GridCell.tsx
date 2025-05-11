@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { CSSProperties } from 'react';
 import * as S from './GridCell.styles.ts';
+import { CellStatus } from '../../types.ts';
+
+type EmptyCellStatus = 'unfilled';
+type FilledCellStatus = Exclude<CellStatus, 'unfilled'>;
 
 type GridCellProps =
-  | { status: 'unfilled'; fontSize?: number }
+  | { status: EmptyCellStatus; fontSize?: number }
   | {
-      status: 'correct' | 'incorrect' | 'misplaced' | 'unstyled';
+      status: FilledCellStatus;
       letter: string;
       fontSize?: number;
     };

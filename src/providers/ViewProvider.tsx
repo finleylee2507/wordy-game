@@ -1,21 +1,20 @@
 import * as React from 'react';
 import { View } from '../constants.ts';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 type ViewContextProps = {
   currentView: View;
   setCurrentView: (view: View) => void;
 };
 
-const ViewContext = React.createContext<ViewContextProps | undefined>(
-  undefined
-);
+const ViewContext = createContext<ViewContextProps | undefined>(undefined);
 
 export const ViewProvider: React.FC<React.PropsWithChildren> = ({
   children
 }) => {
-  const [currentView, setCurrentView] = React.useState<View>(View.Landing);
+  const [currentView, setCurrentView] = useState<View>(View.Landing);
 
-  const providedValue = React.useMemo(
+  const providedValue = useMemo(
     () => ({
       currentView,
       setCurrentView
@@ -30,7 +29,7 @@ export const ViewProvider: React.FC<React.PropsWithChildren> = ({
 };
 
 export const useView = () => {
-  const context = React.useContext(ViewContext);
+  const context = useContext(ViewContext);
 
   if (!context) {
     throw new Error('useView() must be used within the ViewProvider! ');

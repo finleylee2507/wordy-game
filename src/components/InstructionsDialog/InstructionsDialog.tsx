@@ -1,6 +1,5 @@
-import { Dialog } from 'radix-ui';
+import { Dialog, VisuallyHidden } from 'radix-ui';
 import * as S from './InstructionsDialog.styles.ts';
-import { UnstyledButton } from '../UnstyledButton';
 import { Icon } from '../Icon';
 import * as React from 'react';
 import { GridCell } from '../GridCell';
@@ -10,17 +9,23 @@ type InstructionsDialogProps = {
   onDismiss: () => void;
 };
 
-const InstructionsDialog: React.FC<InstructionsDialogProps> = ({ isOpen }) => {
+const InstructionsDialog: React.FC<InstructionsDialogProps> = ({
+  isOpen,
+  onDismiss
+}) => {
   return (
     <Dialog.Root open={isOpen}>
       <Dialog.Portal>
         <S.Overlay />
-        <S.Content>
-          <S.CloseButton>
-            <UnstyledButton>
+        <S.Content onInteractOutside={onDismiss} onEscapeKeyDown={onDismiss}>
+          <VisuallyHidden.Root>
+            <Dialog.Title>How to play?</Dialog.Title>
+          </VisuallyHidden.Root>
+          <S.CloseButtonWrapper onClick={onDismiss} asChild>
+            <S.CloseButton>
               <Icon id="close" size={24} />
-            </UnstyledButton>
-          </S.CloseButton>
+            </S.CloseButton>
+          </S.CloseButtonWrapper>
 
           <S.Description>
             <S.Heading>How to play</S.Heading>

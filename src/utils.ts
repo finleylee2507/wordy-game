@@ -26,3 +26,13 @@ export const range = (
 
   return output;
 };
+
+/**
+ * Randomly selects a single element from an array.
+ * @template T - The type of elements in the array.
+ * @param arr - The array to sample from.
+ * @returns A randomly selected element from the array.
+ */
+export const sample = <T>(arr: T[]): T => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};

@@ -4,7 +4,8 @@ import { Icon } from '../Icon';
 import AppIcon from '../../../public/assets/wordy-icon.svg';
 import { useBreakpoint } from '../../hooks';
 import { BREAKPOINTS_NUMERIC, View } from '../../constants.ts';
-import { useView } from '../../providers';
+import { useDialog, useView } from '../../providers';
+import { DialogType } from '../../types.ts';
 
 const ICON_SIZE_MAP: Record<keyof typeof BREAKPOINTS_NUMERIC, number> = {
   sm: 20,
@@ -20,9 +21,14 @@ const NavBar: React.FC = () => {
   const iconSize = ICON_SIZE_MAP[currWindowWidth];
 
   const { setCurrentView } = useView();
+  const { openDialog } = useDialog();
 
   const handleGoHome = () => {
     setCurrentView(View.Landing);
+  };
+
+  const handleShowHelp = () => {
+    openDialog(DialogType.INSTRUCTIONS);
   };
 
   return (
@@ -31,7 +37,7 @@ const NavBar: React.FC = () => {
         <S.IconButton onClick={handleGoHome}>
           <Icon id="home" color={iconColor} size={iconSize} />
         </S.IconButton>
-        <S.IconButton>
+        <S.IconButton onClick={handleShowHelp}>
           <Icon id="help" color={iconColor} size={iconSize} />
         </S.IconButton>
       </S.ButtonGroup>
